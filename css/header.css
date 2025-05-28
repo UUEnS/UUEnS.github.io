@@ -85,6 +85,12 @@ header {
 
     #mynavigation.responsive{
         display: block;
+        position: absolute;
+        top: 0;
+        left: -150px;
+        width: 100%;
+        height: 100vh;
+        z-index: 999999;
     }
 
     .navigation a:not(:first-child) {display: none;}
