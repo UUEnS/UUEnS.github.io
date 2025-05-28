@@ -7,7 +7,7 @@ header {
 }
 
 .navigation {
-    background-color: #990000;
+    background-color: #940000;
     overflow: hidden;
     user-select: none;
 }
@@ -76,18 +76,22 @@ header {
 }
 
 @media screen and (max-width: 1160px) {
+    
+    header h1 {
+        display: none;
+    }
 
     #mynavigation{
+        margin-top: 15px;
         display: flex;  
         flex-direction: row;
-        margin-left: 150px;
     }
 
     #mynavigation.responsive{
         display: block;
         position: absolute;
-        top: 0;
-        left: -150px;
+        top: -15px;
+        left: 0;
         width: 100%;
         height: 100vh;
         z-index: 999999;
@@ -96,8 +100,8 @@ header {
     header #mynavigation.responsive{
         position: fixed;
     } 
-
-    .navigation a:not(:first-child) {display: none;}
+    
+    .navigation a:not(.active) {display: none;}
 
     .navigation a.icon {
         display: flex;
@@ -129,5 +133,17 @@ header {
         background-color: #990000;
         color: white;
     }
+    .Logo {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        width: 140px;
+        height: 140px;
+        transition: transform .7s ease-in-out;
+    }
 
+    .Logo_mini:hover {
+        transform: rotate(360deg);
+    }
 }
