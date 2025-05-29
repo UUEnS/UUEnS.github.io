@@ -1,5 +1,6 @@
 <html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts | UUE&S</title>
@@ -7,9 +8,22 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/main.css">
-    <script defer src="../script.js"></script>
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "-gV0o1xQOMLqJ617S",
+        });
+    })();
+    </script>
+    <script src="../script.js"></script>
+
 </head>
 <body>
+
     <header>
         <div class="Logo">
             <a href="../EN/index.html"><img src="../Logo.png"  class="Logo_mini"></a>
@@ -32,6 +46,7 @@
         </div>
     </header>
     <main>
+
         <section>
             <h2>How to contact us</h2>
             <p>Telephone number: +380 630594721</p>
@@ -53,7 +68,9 @@
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d96568.98339606245!2d30.61753984445808!3d50.50363900279281!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d0bb9020fad5%3A0x4ebdb7d6c50b646c!2z0JTQtdGB0L3Rj9C90YHRjNC60LjQuSDRgNCw0LnQvtC9LCDQmtC40ZfQsiwgMDIwMDA!5e0!3m2!1suk!2sua!4v1747908051650!5m2!1suk!2sua" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+
         </section>
+        
     </main>
     <footer>
         <p>&copy; 2025 CIVIL ASSOCIATION «UKRAINIAN UNION EDUCATORS AND SCIENTISTS» | All rights reserved</p>
