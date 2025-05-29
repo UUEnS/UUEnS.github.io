@@ -19,3 +19,24 @@ function myFunction() {
         x.className = "navigation";
     }
 }
+
+// Добавьте обработчик события после загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            sendMail();
+        });
+    }
+});
+
+// Обновленная функция отправки
+function sendMail() {
+    // Используем sendForm вместо send
+    emailjs.sendForm(
+        'service_rx4dvc9', 
+        'template_wj85rkx', 
+        '#contact-form'  // селектор формы
+    ).then(alert(`Sent`));
+}

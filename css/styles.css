@@ -14,6 +14,20 @@ footer {
     padding: 10px;
 }
 
+textarea {
+    max-width: 35%;
+    max-height: 20%;
+    min-width: 200px;
+    min-height: 100px;
+}
+
 .footer_text {
     font-size: 12px;
+}
+@media screen and (max-width: 1160px) {
+
+    textarea {
+        max-width: 100%;
+    }
+
 }
