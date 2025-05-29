@@ -10,7 +10,6 @@ window.onload = function() {
     });
 };
 
-/* Toggle between adding and removing the "responsive" class to navigation when the user clicks on the icon */
 function myFunction() {
     var x = document.getElementById("mynavigation");
     if (x.className === "navigation") {
@@ -20,7 +19,6 @@ function myFunction() {
     }
 }
 
-// Добавьте обработчик события после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -31,12 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Обновленная функция отправки
 function sendMail() {
-    // Используем sendForm вместо send
+
     emailjs.sendForm(
         'service_rx4dvc9', 
         'template_wj85rkx', 
-        '#contact-form'  // селектор формы
+        '#contact-form'
     ).then(alert(`Sent`));
 }
