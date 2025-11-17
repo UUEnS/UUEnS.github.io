@@ -1,5 +1,6 @@
 h3:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 h3 div{
     display: none;
