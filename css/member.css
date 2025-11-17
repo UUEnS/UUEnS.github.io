@@ -1,0 +1,41 @@
+h3:hover{
+    text-decoration: underline;
+}
+h3 div{
+    display: none;
+}
+h3:hover div{
+    display: inline;
+}
+.cv {
+    width: 50%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cv-container {
+    display: flex;
+}
+
+.cv-item {
+    background: #ffcb0e65;
+    padding: 15px;
+    border-radius: 5px;
+    flex: 1;
+    transition: transform 0.3s ease;
+    border: 3px #46000059 solid;
+    text-align: center;
+}
+
+.cv-item:hover {
+    transform: scale(1.05);
+}
+
+.cv_1,.cv_2,.cv_3,.cv_4,.cv_5,.cv_6{
+    display: none;
+    gap: 10px;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
