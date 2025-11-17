@@ -9,10 +9,14 @@ h3:hover div{
     display: inline;
 }
 .cv {
-    width: 50%;
+    width: 75%;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    display: block;
+}
+.cv_mob {
+    display: none;
 }
 
 .cv-container {
@@ -40,3 +44,15 @@ h3:hover div{
     transition: transform 0.3s ease;
 }
 
+@media screen and (max-width: 1160px) {
+    .cv {
+        display: none;
+    }
+    .cv_mob {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
