@@ -1,71 +1,58 @@
-window.onload = function() {
-    document.querySelectorAll('.news-item').forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            item.style.transition = 'all 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 200);
-    });
-    document.querySelectorAll('.member-item').forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            item.style.transition = 'all 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 200);
-    });
-    document.querySelectorAll('.cv-item').forEach(item => {
-        item.style.opacity = '0';
-        setTimeout(() => {
-            item.style.transition = 'all 0.5s ease';
-            item.style.opacity = '1';
-        }, 200);
-    });
-};
+document.addEventListener('DOMContentLoaded', () => {
+    // Анимация появления карточек
+    const cards = document.querySelectorAll('.card');
 
-function display_cv(x){
-    document.querySelectorAll(x).forEach(item => {
-        if (item.style.display == 'flex') {
-            item.style.display = 'none';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // Бургер меню
+    window.toggleMenu = function() {
+        const nav = document.getElementById("mynavigation");
+        nav.classList.toggle("responsive");
+    };
+
+    // Аккордеон для CV
+    window.display_cv = function(element) {
+        // Переключаем класс active для заголовка (для стрелочки)
+        element.classList.toggle('active');
+
+        // Находим следующий элемент (контент)
+        const content = element.nextElementSibling;
+        if (content && content.classList.contains('cv-content')) {
+            content.classList.toggle('show');
         }
-        else {
-            item.style.display = 'flex'; 
-            item.style.opacity = '0';
-                setTimeout(() => {
-                item.style.transition = 'all 0.5s ease';
-                item.style.opacity = '1';
-            }, 1);
-        }
-    });
-};
+    };
 
-function myFunction() {
-    var x = document.getElementById("mynavigation");
-    if (x.className === "navigation") {
-        x.className += " responsive";
-    } else {
-        x.className = "navigation";
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Обработка формы
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            sendMail();
+            // Проверка на наличие emailjs
+            if (typeof emailjs !== 'undefined') {
+                emailjs.sendForm(
+                    'service_rx4dvc9',
+                    'template_wj85rkx',
+                    '#contact-form'
+                ).then(() => {
+                    alert('Повідомлення відправлено успішно!');
+                    contactForm.reset();
+                }, (error) => {
+                    alert('Помилка відправлення: ' + JSON.stringify(error));
+                });
+            } else {
+                alert('Помилка: EmailJS не завантажено.');
+            }
         });
     }
 });
-
-function sendMail() {
-
-    emailjs.sendForm(
-        'service_rx4dvc9', 
-        'template_wj85rkx', 
-        '#contact-form'
-    ).then(alert(`Sent`));
-}

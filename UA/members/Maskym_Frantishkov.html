@@ -1,58 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Про нас | ВООіН</title>
+    <title>Максим Франтішков | ВООіН</title>
     <link rel="icon" type="image/png" href="../../Logo.png">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/main.css">
     <script defer src="../../script.js"></script>
-
 </head>
 <body>
-
     <header>
-        <div class="Logo">
-            <a href="../../index.html"><img src="../../Logo.png"  class="Logo_mini"></a>
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="../../index.html"><img src="../../Logo.png" alt="Логотип"></a>
+            </div>
+            <h1>Про нас</h1>
+            <div class="nav-wrapper">
+                <nav class="navigation" id="mynavigation">
+                    <a href="../../index.html">Головна</a>
+                    <a href="../inventions.html">Винаходи</a>
+                    <a href="../about.html" class="active">Про нас</a>
+                    <a href="../history.html">Історія</a>
+                    <a href="../statute.html">Статут</a>
+                    <a href="../partners.html">Наші партнери</a>
+                    <a href="../contacts.html">Контакти</a>
+                    <a href="../prefiks.html">ПРЕФІКС</a>
+                </nav>
+                <div class="language-switcher">
+                    <a href="../../EN/members/Maskym_Frantishkov.html">EN</a>
+                    <a href="../../UA/members/Maskym_Frantishkov.html">UA</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
+            </div>
         </div>
-
-        <h1>Про нас</h1>
-
-        <b><div class="navigation" id="mynavigation">
-            <a href="../../index.html">Головна</a>
-            <a href="../inventions.html">Винаходи</a>
-            <a href="../about.html" class="active">Про нас</a>
-            <a href="../history.html">Історія</a>
-            <a href="../statute.html">Статут</a>
-            <a href="../partners.html">Наші партнери</a>
-            <a href="../contacts.html">Контакти</a>
-            <a href="../prefiks.html">ПРЕФІКС</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">☰</a>
-        </div></b>
-
-        <div class="language-switcher">
-            <a href="../../EN/members/Maskym_Frantishkov.html">EN</a>
-
-            <a href="../../UA/members/Maskym_Frantishkov.html">UA</a>
-        </div>
-
     </header>
     
     <main>
-
-        <section style="text-align: center;">
+        <section class="card" style="max-width: 600px; margin: 0 auto;">
             <h2>Франтішков Максим Ігорьович</h2>
-            <p>
-                історик, економіст, філософ
-            </p>
+            <p style="font-size: 1.2rem; color: #555; margin-top: 1rem;">історик, економіст, філософ</p>
         </section>
-        <br>
-
-        <section class="profile">
-        </section>
-        
     </main>
 
     <footer>

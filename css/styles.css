@@ -1,33 +1,399 @@
-a { color: #ef0000;}
+:root {
+    --primary-color: #800000; /* Глубокий бордовый */
+    --primary-dark: #500000;
+    --accent-color: #FFC107; /* Золотой */
+    --text-color: #333;
+    --bg-light: #f4f4f4;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-footer {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: var(--white);
+    padding: 1rem 2rem;
     position: relative;
-    background: #660000;
-    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-container img {
+    height: 80px;
+    width: 80px;
+    transition: transform 0.7s ease-in-out;
+}
+
+.logo-container img:hover {
+    transform: rotate(360deg);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+    flex-grow: 1;
     text-align: center;
+}
+
+/* --- Navigation --- */
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navigation {
+    display: flex;
+    gap: 5px;
+}
+
+.navigation a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+}
+
+.navigation a:hover, .navigation a.active {
+    background-color: rgba(255,255,255,0.2);
+    color: var(--accent-color);
+}
+
+.icon {
+    display: none; /* Скрыт на десктопе */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.language-switcher a {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.language-switcher a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+    border-color: var(--accent-color);
+}
+
+/* --- Main Content --- */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.hero h2 {
+    color: var(--white);
+    border-bottom: none;
+}
+
+/* --- Grid System (News, Members, Partners) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-top: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    border-top: 3px solid var(--primary-color);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.card a.btn {
+    margin-top: auto;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.card a.btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* --- CV / Accordion --- */
+.cv-section h3 {
+    background-color: #eaeaea;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.cv-section h3:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+}
+
+.cv-section h3::before {
+    content: '➤';
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.cv-section h3.active::before {
+    transform: rotate(90deg);
+}
+
+.cv-content {
+    display: none; /* Скрыто по умолчанию */
     padding: 10px;
+    background: var(--white);
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease;
 }
 
-textarea {
-    max-width: 35%;
-    max-height: 20%;
-    min-width: 200px;
-    min-height: 100px;
+.cv-content.show {
+    display: block;
 }
 
-.footer_text {
-    font-size: 12px;
+.cv-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
-@media screen and (max-width: 1160px) {
 
-    textarea {
-        max-width: 100%;
+.cv-item h4 {
+    color: var(--primary-dark);
+}
+
+/* --- Forms --- */
+form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-dark);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+footer a {
+    color: var(--accent-color);
+    border-bottom: 1px dotted var(--accent-color);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 1400px) {
+    .header-container {
+        flex-wrap: wrap;
     }
 
+    header h1 {
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .navigation {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-dark);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .navigation.responsive {
+        display: flex;
+    }
+
+    .icon {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav-wrapper {
+        flex-grow: 1;
+        justify-content: space-between; /* Перемещаем элементы по краям */
+        gap: 1.5rem;
+    }
+
+    /* Улучшенные кнопки переключения языка для мобильной версии */
+    .language-switcher {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-left: 10px; /* Отступ слева */
+    }
+
+    .language-switcher a {
+        margin-left: 0;
+        padding: 10px 16px; /* Увеличенный размер для удобства нажатия */
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 6px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: var(--transition);
+    }
+
+    .language-switcher a:hover,
+    .language-switcher a:active {
+        background-color: var(--accent-color);
+        color: var(--primary-dark);
+        border-color: var(--accent-color);
+    }
 }
